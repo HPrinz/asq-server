@@ -1,0 +1,23 @@
+language: java
+deploy:
+- provider: s3
+  access_key_id: AKIAJSKFVFIWL2EOTQLA
+  secret_access_key: &1
+    secure: gMB5kOlR4tpisYul/yjE9xhdXyqnx5qW1yZbUqg8ycDvEbMxS11FBrF9FNruS83IZoeumgdUL34tyGIdy2yRHGHgK87rVbh8vxA0oVFklDzCS5n5mQ5pIfg8GlX5C6wls1qcs2DXm9J+MfSZ48C3jPsgGfYvaUWEM/3XKIWIzFMUCfU45lk9tGPNfWK+qKbVeCwg3RIxMDbYHicANC2HSEPbeIUciTit5eQZeoKnCUWhWCTr78EiyGSRj19XNhMO195evCVRSOrXyZvhoBdcpktq+fqE951WY2Nt7aAoHmMNGlj9+CE02OG5HuUPezX1SFBAOl/ca/S7dpqBWCbg6GuGp9QsdHJLbtk/QLSNbdkXvWnUjaI7IjZxfc7SDwjpPukBatJL9dmYotCJZBLnZFA8k9JGSKci+GzitCOOKVz70K/c80oJsG6VCX48DacTYfacdio+ekKmXnW/Mdez/ECRMRZ9sDu3eYwqoqa5fKEGt/advhoqWHUpNt6nI9RibHRrvWmaLBZi/nH6Bu0eHtmoAADZRPq4wyabjEDt9W+C2MgSeO3TkrlZJxlAfIy7R6rJSKfwJBNBMlg77XIpn4U/5d/03fFvvBWpYg9lZgfRUFLJunID/2qSXOGfcB3hA0nmWYhGVJA4PodeKmj6/OLtRZTOkPH9ruCAN5JQ3/0=
+  local_dir: dpl_cd_upload
+  skip_cleanup: true
+  on: &2
+    repo: HPrinz/asq-app
+  bucket: asq-server
+- provider: codedeploy
+  access_key_id: AKIAJSKFVFIWL2EOTQLA
+  secret_access_key: *1
+  bucket: asq-server
+  key: ''
+  bundle_type: ''
+  application: asq-app
+  deployment_group: ''
+  on: *2
+before_deploy:
+- mkdir -p dpl_cd_upload
+- mv '' dpl_cd_upload/''
