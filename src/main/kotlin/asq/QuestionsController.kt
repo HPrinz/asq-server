@@ -20,7 +20,8 @@ class QuestionsController() {
 
     @GetMapping()
     fun getQuestions(): List<Question> {
-        questionsDao.saveQuestion(Question(counter.incrementAndGet(), "Wo gibt es gutes Essen in Berlin?", "user1", Instant.now()))
+        val question = Question(counter.incrementAndGet(), "Wo gibt es gutes Essen in Berlin?", "user1", Instant.now())
+        questionsDao.saveQuestion(question)
         return questionsDao.getQuestions()
     }
 

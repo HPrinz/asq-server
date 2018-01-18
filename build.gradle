@@ -2,8 +2,9 @@ group 'asq'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.2.10'
+    ext.kotlin_version = '1.2.20'
     ext.spring_boot_version = '1.5.4.RELEASE'
+    ext.jackson_kotlin_version = '2.9.3'
 
     repositories {
         mavenCentral()
@@ -27,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compile 'com.google.maps:google-maps-services:0.2.5'
     //compile 'org.slf4j:slf4j-nop:1.7.25'
     compile 'org.facebook4j:facebook4j-core:2.4.10'
@@ -39,8 +40,10 @@ dependencies {
     compile "com.fasterxml.jackson.core:jackson-databind"
     runtime "com.fasterxml.jackson.datatype:jackson-datatype-jdk8"
     runtime "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
-    runtime "com.fasterxml.jackson.module:jackson-module-kotlin"
+    runtime "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
+    // Test
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.jetbrains.spek:spek-junit-platform-engine:1.1.5"
     testCompile "org.jetbrains.spek:spek-api:1.1.5"
