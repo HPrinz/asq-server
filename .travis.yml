@@ -7,7 +7,7 @@ deploy:
   local_dir: dpl_cd_upload
   skip_cleanup: true
   on: &2
-    repo: HPrinz/asq-app
+    repo: HPrinz/asq-server
   bucket: asq-server
 - provider: codedeploy
   access_key_id: AKIAJSKFVFIWL2EOTQLA
@@ -15,7 +15,7 @@ deploy:
   bucket: asq-server
   key: ''
   bundle_type: ''
-  application: asq-app
+  application: asq-server
   deployment_group: ''
   on: *2
 before_deploy:
