@@ -1,19 +1,8 @@
 language: java
 deploy:
-- provider: s3
-  access_key_id: AKIAJSKFVFIWL2EOTQLA
-  secret_access_key: &1
-    secure: gMB5kOlR4tpisYul/yjE9xhdXyqnx5qW1yZbUqg8ycDvEbMxS11FBrF9FNruS83IZoeumgdUL34tyGIdy2yRHGHgK87rVbh8vxA0oVFklDzCS5n5mQ5pIfg8GlX5C6wls1qcs2DXm9J+MfSZ48C3jPsgGfYvaUWEM/3XKIWIzFMUCfU45lk9tGPNfWK+qKbVeCwg3RIxMDbYHicANC2HSEPbeIUciTit5eQZeoKnCUWhWCTr78EiyGSRj19XNhMO195evCVRSOrXyZvhoBdcpktq+fqE951WY2Nt7aAoHmMNGlj9+CE02OG5HuUPezX1SFBAOl/ca/S7dpqBWCbg6GuGp9QsdHJLbtk/QLSNbdkXvWnUjaI7IjZxfc7SDwjpPukBatJL9dmYotCJZBLnZFA8k9JGSKci+GzitCOOKVz70K/c80oJsG6VCX48DacTYfacdio+ekKmXnW/Mdez/ECRMRZ9sDu3eYwqoqa5fKEGt/advhoqWHUpNt6nI9RibHRrvWmaLBZi/nH6Bu0eHtmoAADZRPq4wyabjEDt9W+C2MgSeO3TkrlZJxlAfIy7R6rJSKfwJBNBMlg77XIpn4U/5d/03fFvvBWpYg9lZgfRUFLJunID/2qSXOGfcB3hA0nmWYhGVJA4PodeKmj6/OLtRZTOkPH9ruCAN5JQ3/0=
-  skip_cleanup: true
-  on: &2
+  provider: heroku
+  api_key:
+    secure: SA9EMSLD9QzeWl9Ev/S4q7LxVc62NDKHwvqIKTXMnae7eOZ/TdIflZOBOQzCh5ZljxExasf/1dp4T/pgQc4TzoSji2GRaGTB4EUy9DckWZgRZOstOsjvK5G23RN2pUHi077z0Rij5VWoAtJiocA/No+Ou+3c1xnsgefgDh4xqEMwzP4w5ZW8uFmCrKF4WGlEmWeAeWwJdtK7UrBIp+bFhKtEih8cR9SixkqtNJ+07EQfk+UgDNB6cY23tEP5CDpfatZBg24lJ+058VTPDmf/ojD9Blo3Nf6rPAUKVzxhlj07/JW/i6LqO4onj1FR/AhEanlX4AK3LMvVa2k1yPSH1nKN4jic7EAVx4hP0hTKw1qZIvHZg5PHd/5ciQDid0UFcBRAUFsu7Tul5WOJHeMQEnnXAfpQ2hB6Gxqtf/4YsyAuxLxvot2woqf7sFz5P8X+mtMojovNS4vLmCEjIUBw1TM8dVVlXFUgBRrIsafgf1hBEY4c4lmFtPtrU3/mhMrlMbnBrNLo/LQh5iQMjn6YhCPt284GoiuwpGVehL8HcXFW6o8CFqzxqHBxtQry0Dr0VxvFe4t8iflyXtGmFkYQeJAI7Bu10nljLJ3Qh+GcPmiSxpE7gaMj+FffPtuztd70yNham4QB6uNiTiIlXA94PP0C9NWspK6F4eIc2b5sRQs=
+  app: intense-ridge-99027
+  on:
     repo: HPrinz/asq-server
-  bucket: asq-server
-- provider: codedeploy
-  access_key_id: AKIAJSKFVFIWL2EOTQLA
-  secret_access_key: *1
-  bucket: asq-server
-  key: build/libs/asq-questions-1.0-SNAPSHOT.jar
-  bundle_type: ''
-  application: asq-server
-  deployment_group: 'asq'
-  on: *2
